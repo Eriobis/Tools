@@ -1,0 +1,41 @@
+{
+        "version": "0.2.0",
+        "configurations": [
+            {
+                "name": "C++ Attach",
+                "type": "cppdbg",
+                "request": "launch",
+                "MIMode": "gdb",
+                "miDebuggerPath": "D:\\ArmToolchain\\bin\\arm-none-eabi-gdb.exe",
+                "miDebuggerServerAddress": "localhost:4242",
+                "cwd": ".",
+                "program": "${workspaceRoot}\\bin\\Debug\\yourfile.elf",
+                "args": [],
+                "stopAtEntry": false,
+                "environment": [],
+                "externalConsole": true,
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            { 
+                "name": "(gdb) Attach",
+                "type": "gdb",
+                "request": "attach",
+                "executable": "${workspaceRoot}\\bin\\Debug_REV210_1\\ses001-fw.elf",
+                "gdbpath": "C:\\Program Files (x86)\\GNU Tools ARM Embedded\\5.4 2016q3\\bin\\arm-none-eabi-gdb.exe",
+                "target": "localhost:4242",
+                "cwd": "${workspaceRoot}",
+                "remote": true,
+                "autorun": [
+                    "load ./bin/Debug_REV210_1/ses001-fw.elf ",
+                    "break main",
+                    "monitor reset"
+                ] 
+            }
+        ]
+    }
